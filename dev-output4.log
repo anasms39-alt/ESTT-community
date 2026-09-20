@@ -983,3 +983,83 @@ File proxy error: TypeError: Cannot convert argument to a ByteString because the
  ✓ Compiled in 632ms (4197 modules)
  ✓ Compiled in 898ms (4197 modules)
  ✓ Compiled in 794ms (4197 modules)
+ ⨯ ./app/(core)/resource/[resourceId]/page.js
+Error: 
+  [31mx[0m the name `origin` is defined multiple times
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:304:1]
+ [2m304[0m | 
+ [2m305[0m |         if (!fileId) return null;
+ [2m306[0m | 
+ [2m307[0m |         const origin = typeof window !== 'undefined' ? window.location.origin : '';
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `origin` here[0m[0m
+ [2m308[0m | 
+ [2m309[0m |         if (/docs\.google\.com\/document\/d\//.test(url)) {
+ [2m310[0m |             const previewUrl = url.replace(/\/(edit|view|copy).*$/, '/preview');
+ [2m311[0m |             return previewUrl;
+ [2m312[0m |         }
+ [2m313[0m | 
+ [2m314[0m |         if (/docs\.google\.com\/presentation\/d\//.test(url) || /drive\.google\.com\/file\/d\//.test(url)) {
+ [2m315[0m |             return `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+ [2m316[0m |         }
+ [2m317[0m | 
+ [2m318[0m |         const origin = typeof window !== 'undefined' ? window.location.origin : '';
+     : [33;1m              ^^^|^^[0m
+     :                  [33;1m`-- [33;1m`origin` redefined here[0m[0m
+ [2m319[0m |         const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
+ [2m320[0m |         return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
+ [2m321[0m |     };
+     `----
+
+Import trace for requested module:
+./app/(core)/resource/[resourceId]/page.js
+ ○ Compiling /_error ...
+ ⨯ ./app/(core)/resource/[resourceId]/page.js
+Error: 
+  [31mx[0m the name `origin` is defined multiple times
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:304:1]
+ [2m304[0m | 
+ [2m305[0m |         if (!fileId) return null;
+ [2m306[0m | 
+ [2m307[0m |         const origin = typeof window !== 'undefined' ? window.location.origin : '';
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `origin` here[0m[0m
+ [2m308[0m | 
+ [2m309[0m |         if (/docs\.google\.com\/document\/d\//.test(url)) {
+ [2m310[0m |             const previewUrl = url.replace(/\/(edit|view|copy).*$/, '/preview');
+ [2m311[0m |             return previewUrl;
+ [2m312[0m |         }
+ [2m313[0m | 
+ [2m314[0m |         if (/docs\.google\.com\/presentation\/d\//.test(url) || /drive\.google\.com\/file\/d\//.test(url)) {
+ [2m315[0m |             return `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+ [2m316[0m |         }
+ [2m317[0m | 
+ [2m318[0m |         const origin = typeof window !== 'undefined' ? window.location.origin : '';
+     : [33;1m              ^^^|^^[0m
+     :                  [33;1m`-- [33;1m`origin` redefined here[0m[0m
+ [2m319[0m |         const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
+ [2m320[0m |         return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
+ [2m321[0m |     };
+     `----
+
+Import trace for requested module:
+./app/(core)/resource/[resourceId]/page.js
+ GET /browse?field=ia&semester=S2&module=ia_m10 500 in 24ms
+ ✓ Compiled /_not-found in 1491ms (4424 modules)
+ GET /browse?field=ia&semester=S2&module=ia_m10 200 in 72ms
+ ✓ Compiled in 665ms (4424 modules)
+ ✓ Compiled in 891ms (4423 modules)
+ ✓ Compiled in 487ms (4423 modules)
+ ✓ Compiled in 412ms (4423 modules)
+ ✓ Compiled in 367ms (2325 modules)
+ ✓ Compiled in 657ms (4423 modules)
+ ○ Compiling /api/file-proxy ...
+ ✓ Compiled /api/file-proxy in 511ms (2268 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 13458ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 18513ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 404 in 3887ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 404 in 3265ms
+ ✓ Compiled in 769ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 171ms (2268 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 17014ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 27504ms

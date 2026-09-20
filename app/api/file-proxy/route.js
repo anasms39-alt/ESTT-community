@@ -57,29 +57,39 @@ export async function GET(req) {
             `https://www.googleapis.com/drive/v3/files/${fileId}?fields=mimeType,name`,
             { headers: { Authorization: `Bearer ${accessToken}` } }
         );
-        if (!metaRes.ok) {
-            return NextResponse.json({ error: 'File not found' }, { status: 404 });
-        }
-        const meta = await metaRes.json();
 
-        const isGoogleNative = meta.mimeType && meta.mimeType.startsWith('application/vnd.google-apps.');
-        if (isGoogleNative) {
-            const previewUrl = fileUrl.replace(/\/(edit|view).*$/, '/preview');
-            return NextResponse.redirect(previewUrl);
+        let buffer;
+        let contentType;
+
+        if (metaRes.ok) {
+            const meta = await metaRes.json();
+            contentType = meta.mimeType || 'application/octet-stream';
+
+            const fileRes = await fetch(
+                `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+                { headers: { Authorization: `Bearer ${accessToken}` } }
+            );
+
+            if (fileRes.ok) {
+                buffer = await fileRes.arrayBuffer();
+            }
         }
 
-        const fileRes = await fetch(
-            `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
-            { headers: { Authorization: `Bearer ${accessToken}` } }
-        );
-        if (!fileRes.ok) {
-            return NextResponse.json({ error: 'Download failed' }, { status: 500 });
+        if (!buffer) {
+            const pubRes = await fetch(
+                `https://drive.google.com/uc?export=download&id=${fileId}`,
+                { redirect: 'follow' }
+            );
+            if (!pubRes.ok) {
+                return NextResponse.json({ error: 'File not found' }, { status: 404 });
+            }
+            buffer = await pubRes.arrayBuffer();
+            contentType = pubRes.headers.get('content-type') || 'application/octet-stream';
         }
 
-        const buffer = await fileRes.arrayBuffer();
         return new NextResponse(buffer, {
             headers: {
-                'Content-Type': meta.mimeType || 'application/octet-stream',
+                'Content-Type': contentType,
                 'Cache-Control': 'public, max-age=3600',
             },
         });

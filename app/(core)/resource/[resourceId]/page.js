@@ -305,16 +305,6 @@ export default function ResourcePage() {
         if (!fileId) return null;
 
         const origin = typeof window !== 'undefined' ? window.location.origin : '';
-
-        if (/docs\.google\.com\/document\/d\//.test(url)) {
-            const previewUrl = url.replace(/\/(edit|view|copy).*$/, '/preview');
-            return previewUrl;
-        }
-
-        if (/docs\.google\.com\/presentation\/d\//.test(url)) {
-            return `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
-        }
-
         const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
         return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
     };
