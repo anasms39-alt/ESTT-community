@@ -100,6 +100,9 @@ export async function GET(req) {
             }
             buffer = await pubRes.arrayBuffer();
             contentType = pubRes.headers.get('content-type') || 'application/octet-stream';
+            const pubCd = pubRes.headers.get('content-disposition') || '';
+            const pubFn = pubCd.match(/filename="?([^";\n]+)"?/);
+            if (pubFn) fileName = pubFn[1];
         }
 
         const safeName = fileName.replace(/[^a-zA-Z0-9._\-\u00C0-\u024F ]/g, '_');
