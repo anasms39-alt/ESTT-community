@@ -605,10 +605,12 @@ export default function ResourcePage() {
     };
 
     const handleDownload = async (e) => {
-        const url = isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl;
-        const isPdf = isPdfUrl(downloadUrl);
-        if (!isPdf) return;
         e.preventDefault();
+        const url = isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl;
+        if (!isGoogleHostedFile(downloadUrl) && !isPdfUrl(downloadUrl)) {
+            window.open(url, '_blank');
+            return;
+        }
         try {
             const res = await fetch(url);
             const blob = await res.blob();
@@ -904,11 +906,9 @@ export default function ResourcePage() {
                     </CardContent>
 
                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
-                        <Button asChild className="gap-2 flex-1 sm:flex-none">
-                            <a href={isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl} target="_blank" rel="noopener noreferrer" onClick={handleDownload}>
-                                <Download className="w-4 h-4" />
-                                Télécharger
-                            </a>
+                        <Button className="gap-2 flex-1 sm:flex-none cursor-pointer" onClick={handleDownload}>
+                            <Download className="w-4 h-4" />
+                            Télécharger
                         </Button>
                         <Button variant="outline" size="sm" onClick={handleShare} className="gap-2 text-muted-foreground hover:text-primary flex-1 sm:flex-none">
                             <Share2 className="w-4 h-4" />
