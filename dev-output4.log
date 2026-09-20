@@ -1193,3 +1193,16 @@ Import trace for requested module:
  ✓ Compiled in 417ms (4423 modules)
  ✓ Compiled in 229ms (2325 modules)
  ✓ Compiled in 365ms (2325 modules)
+ ✓ Compiled in 819ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 468ms (2268 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk 200 in 5539ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 8793ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 8539ms
+ ✓ Compiled in 1133ms (4593 modules)
+ ✓ Compiled in 455ms (4593 modules)
+ ✓ Compiled in 536ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 160ms (2268 modules)
+ GET /api/file-proxy?download=1&url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk 200 in 1066ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk 200 in 7980ms
+ GET /api/file-proxy?download=1&url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 5598ms
+ ✓ Compiled in 883ms (4423 modules)

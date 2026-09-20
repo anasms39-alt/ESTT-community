@@ -39,6 +39,7 @@ export async function GET(req) {
     try {
         const { searchParams } = new URL(req.url);
         const fileUrl = searchParams.get('url');
+        const isDownload = searchParams.get('download') === '1';
         if (!fileUrl) {
             return NextResponse.json({ error: 'Missing url parameter' }, { status: 400 });
         }
@@ -74,6 +75,18 @@ export async function GET(req) {
 
             if (fileRes.ok) {
                 buffer = await fileRes.arrayBuffer();
+
+                if (!isDownload && /docs\.google\.com\/document\/d\//.test(fileUrl)) {
+                    const exportUrl = fileUrl.replace(/\/(edit|view|copy).*$/, '/export?format=pdf');
+                    const exportRes = await fetch(exportUrl, { redirect: 'follow' });
+                    if (exportRes.ok) {
+                        buffer = await exportRes.arrayBuffer();
+                        contentType = 'application/pdf';
+                        if (!fileName.toLowerCase().endsWith('.pdf')) {
+                            fileName = fileName.replace(/\.[^.]+$/, '') + '.pdf';
+                        }
+                    }
+                }
             }
         }
 

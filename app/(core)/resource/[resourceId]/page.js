@@ -599,7 +599,7 @@ export default function ResourcePage() {
     const getDownloadUrl = (url) => {
         if (isGoogleHostedFile(url)) {
             const origin = typeof window !== 'undefined' ? window.location.origin : '';
-            return `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
+            return `${origin}/api/file-proxy?download=1&url=${encodeURIComponent(url)}`;
         }
         return url;
     };
@@ -881,10 +881,17 @@ export default function ResourcePage() {
 
                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
                         <Button asChild className="gap-2 flex-1 sm:flex-none">
-                            <a href={getDownloadUrl(downloadUrl)} target="_blank" rel="noopener noreferrer">
-                                <Download className="w-4 h-4" />
-                                Télécharger
-                            </a>
+                            {isGoogleHostedFile(downloadUrl) ? (
+                                <a href={getDownloadUrl(downloadUrl)} download={resource.fileName || resource.title || 'download'}>
+                                    <Download className="w-4 h-4" />
+                                    Télécharger
+                                </a>
+                            ) : (
+                                <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
+                                    <Download className="w-4 h-4" />
+                                    Télécharger
+                                </a>
+                            )}
                         </Button>
                         <Button variant="outline" size="sm" onClick={handleShare} className="gap-2 text-muted-foreground hover:text-primary flex-1 sm:flex-none">
                             <Share2 className="w-4 h-4" />
