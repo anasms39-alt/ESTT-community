@@ -1063,3 +1063,22 @@ Import trace for requested module:
  ✓ Compiled /api/file-proxy in 171ms (2268 modules)
  GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 17014ms
  GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 27504ms
+ ✓ Compiled in 955ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 170ms (2268 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit 200 in 9219ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit 200 in 1982ms
+ GET /api/file-proxy?export=pdf&url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit 200 in 1609ms
+ ✓ Compiled in 873ms (4593 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit 200 in 1980ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit 200 in 4040ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview 200 in 6090ms
+ ✓ Compiled in 773ms (4423 modules)
+ ✓ Compiled in 437ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 162ms (2268 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit 200 in 3866ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit 200 in 5362ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview 200 in 5769ms
+ ✓ Compiled in 684ms (4593 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk 200 in 3729ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk 200 in 4122ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 5767ms
