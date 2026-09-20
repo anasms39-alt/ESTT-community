@@ -615,8 +615,8 @@ export default function ResourcePage() {
             const res = await fetch(url);
             const buf = await res.arrayBuffer();
             const cd = res.headers.get('content-disposition') || '';
-            const fnMatch = cd.match(/filename="?([^";\n]+)"?/);
-            const fileName = fnMatch ? fnMatch[1] : (resource.fileName || resource.title || 'download');
+            const fnMatch = cd.match(/filename\*=UTF-8''([^;\n]+)/);
+            const fileName = fnMatch ? decodeURIComponent(fnMatch[1]) : (resource.fileName || resource.title || 'download');
             const blob = new Blob([buf], { type: 'application/octet-stream' });
             const blobUrl = URL.createObjectURL(blob);
             const tmp = document.createElement('a');
