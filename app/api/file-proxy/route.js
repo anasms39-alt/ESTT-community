@@ -67,29 +67,13 @@ export async function GET(req) {
             contentType = meta.mimeType || 'application/octet-stream';
             fileName = meta.name || 'download';
 
-            const isNativeGoogle = meta.mimeType && meta.mimeType.startsWith('application/vnd.google-apps.');
-            const isDocsUrl = /docs\.google\.com\/document\/d\//.test(fileUrl);
+            const fileRes = await fetch(
+                `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+                { headers: { Authorization: `Bearer ${accessToken}` } }
+            );
 
-            if (isNativeGoogle || isDocsUrl) {
-                const exportUrl = fileUrl.replace(/\/(edit|view|copy).*$/, '/export?format=pdf');
-                const exportRes = await fetch(exportUrl, { redirect: 'follow' });
-
-                if (exportRes.ok) {
-                    buffer = await exportRes.arrayBuffer();
-                    contentType = 'application/pdf';
-                    if (!fileName.toLowerCase().endsWith('.pdf')) {
-                        fileName = fileName.replace(/\.[^.]+$/, '') + '.pdf';
-                    }
-                }
-            } else {
-                const fileRes = await fetch(
-                    `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
-                    { headers: { Authorization: `Bearer ${accessToken}` } }
-                );
-
-                if (fileRes.ok) {
-                    buffer = await fileRes.arrayBuffer();
-                }
+            if (fileRes.ok) {
+                buffer = await fileRes.arrayBuffer();
             }
         }
 

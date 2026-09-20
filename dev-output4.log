@@ -1189,3 +1189,7 @@ Import trace for requested module:
  GET /browse?field=ia&semester=S2&module=ia_m10 500 in 17ms
  ✓ Compiled /_not-found in 1152ms (4410 modules)
  GET /browse?field=ia&semester=S2&module=ia_m10 200 in 196ms
+ ✓ Compiled in 875ms (4423 modules)
+ ✓ Compiled in 417ms (4423 modules)
+ ✓ Compiled in 229ms (2325 modules)
+ ✓ Compiled in 365ms (2325 modules)
