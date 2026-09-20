@@ -1231,3 +1231,11 @@ Import trace for requested module:
  ○ Compiling /api/file-proxy ...
  ✓ Compiled /api/file-proxy in 938ms (2268 modules)
  HEAD /api/file-proxy?download=1&url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview 200 in 11649ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1GSw7BrIGlOW-skL5OJHj1XwUmWyFSs6k0xX4fbFwhXU%2Fedit%3Fusp%3Ddrive_link 404 in 2278ms
+ ✓ Compiled in 1554ms (4423 modules)
+ ✓ Compiled in 764ms (4423 modules)
+ ✓ Compiled in 855ms (4423 modules)
+ ✓ Compiled in 440ms (4423 modules)
+ ✓ Compiled /api/file-proxy in 478ms (2268 modules)
+ HEAD /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1GSw7BrIGlOW-skL5OJHj1XwUmWyFSs6k0xX4fbFwhXU%2Fedit%3Fusp%3Ddrive_link 404 in 5627ms
+ HEAD /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit 200 in 8171ms

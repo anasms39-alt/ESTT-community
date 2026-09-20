@@ -50,6 +50,9 @@ export default function ResourcePage() {
     const [isFavorite, setIsFavorite] = useState(false);
     const [isTogglingFavorite, setIsTogglingFavorite] = useState(false);
 
+    // Preview availability for Google-hosted files
+    const [previewAvailable, setPreviewAvailable] = useState(null);
+
     useEffect(() => {
         if (resourceId) {
             fetchResource();
@@ -604,6 +607,20 @@ export default function ResourcePage() {
         return url;
     };
 
+    const previewProxyUrl = (() => {
+        if (!downloadUrl || !isGoogleHostedFile(downloadUrl)) return null;
+        const origin = typeof window !== 'undefined' ? window.location.origin : '';
+        return `${origin}/api/file-proxy?url=${encodeURIComponent(downloadUrl)}`;
+    })();
+
+    useEffect(() => {
+        if (!previewProxyUrl) return;
+        setPreviewAvailable(null);
+        fetch(previewProxyUrl, { method: 'HEAD' })
+            .then((res) => setPreviewAvailable(res.ok))
+            .catch(() => setPreviewAvailable(false));
+    }, [previewProxyUrl]);
+
     const handleDownload = async (e) => {
         e.preventDefault();
         const url = isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl;
@@ -824,31 +841,72 @@ export default function ResourcePage() {
 
                         {!getYouTubeEmbedUrl(downloadUrl) && isPdfUrl(downloadUrl) && (
                             <div className="w-full h-[60vh] sm:h-[600px] md:h-[700px] rounded-xl overflow-hidden border shadow-sm bg-muted transition-all hover:shadow-md">
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src={isGoogleHostedFile(downloadUrl)
-                                        ? getGoogleWorkspaceEmbedUrl(downloadUrl)
-                                        : `https://docs.google.com/gview?url=${encodeURIComponent(downloadUrl)}&embedded=true`
-                                    }
-                                    title="PDF viewer"
-                                    frameBorder="0"
-                                    allowFullScreen
-                                ></iframe>
+                                {isGoogleHostedFile(downloadUrl) ? (
+                                    previewAvailable === false ? (
+                                        <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+                                            <FileText className="w-12 h-12 mb-3 text-muted-foreground" />
+                                            <p className="mb-4 text-muted-foreground">Aperçu non disponible — Téléchargez le fichier</p>
+                                            <Button asChild className="gap-2">
+                                                <a href={getDownloadUrl(downloadUrl)}>
+                                                    <Download className="w-4 h-4" />
+                                                    Télécharger
+                                                </a>
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={getGoogleWorkspaceEmbedUrl(downloadUrl)}
+                                            title="PDF viewer"
+                                            frameBorder="0"
+                                            allowFullScreen
+                                        ></iframe>
+                                    )
+                                ) : (
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={`https://docs.google.com/gview?url=${encodeURIComponent(downloadUrl)}&embedded=true`}
+                                        title="PDF viewer"
+                                        frameBorder="0"
+                                        allowFullScreen
+                                    ></iframe>
+                                )}
                             </div>
                         )}
 
                         {!getYouTubeEmbedUrl(downloadUrl) && !isPdfUrl(downloadUrl) && getGoogleWorkspaceEmbedUrl(downloadUrl) && (
-                            <div className="w-full h-[60vh] sm:h-[600px] md:h-[700px] rounded-xl overflow-hidden border shadow-sm bg-muted transition-all hover:shadow-md">
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src={getGoogleWorkspaceEmbedUrl(downloadUrl)}
-                                    title="Google Workspace viewer"
-                                    frameBorder="0"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
+                            previewAvailable === false ? (
+                                <div className="border rounded-xl p-5 sm:p-6 bg-muted hover:bg-muted/80 transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-4 shadow-sm hover:shadow-md">
+                                    <div className="flex items-start sm:items-center gap-4 w-full sm:w-auto">
+                                        <div className="p-3 bg-primary/10 rounded-full text-primary shrink-0 mt-1 sm:mt-0">
+                                            <FileText className="w-6 h-6" />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="font-semibold text-foreground mb-1 text-base sm:text-lg">{resource.title}</h4>
+                                            <p className="text-sm text-muted-foreground">Aperçu non disponible — Téléchargez le fichier</p>
+                                        </div>
+                                    </div>
+                                    <Button asChild className="w-full sm:w-auto shrink-0 gap-2 font-medium">
+                                        <a href={getDownloadUrl(downloadUrl)}>
+                                            <Download className="w-4 h-4" />
+                                            Télécharger
+                                        </a>
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="w-full h-[60vh] sm:h-[600px] md:h-[700px] rounded-xl overflow-hidden border shadow-sm bg-muted transition-all hover:shadow-md">
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={getGoogleWorkspaceEmbedUrl(downloadUrl)}
+                                        title="Google Workspace viewer"
+                                        frameBorder="0"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                            )
                         )}
 
                         {/* Fallback for generic links (Not YouTube, Not PDF, Not Google Workspace) */}
