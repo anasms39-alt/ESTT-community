@@ -103,6 +103,7 @@ export async function GET(req) {
         return new NextResponse(buffer, {
             headers: {
                 'Content-Type': contentType,
+                'Content-Disposition': 'attachment',
                 'Cache-Control': 'public, max-age=3600',
             },
         });
