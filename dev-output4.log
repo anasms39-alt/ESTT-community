@@ -1085,3 +1085,107 @@ Import trace for requested module:
  ✓ Compiled in 1137ms (4423 modules)
  ✓ Compiled in 428ms (4423 modules)
  ✓ Compiled in 350ms (2325 modules)
+ ✓ Compiled in 343ms (2325 modules)
+ ✓ Compiled in 927ms (4423 modules)
+ ⨯ ./app/(core)/resource/[resourceId]/page.js
+Error: 
+  [31mx[0m Unexpected token. Did you mean `{'>'}` or `&gt;`?
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:880:1]
+ [2m880[0m |                     </CardContent>
+ [2m881[0m | 
+ [2m882[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m883[0m |     const handleDownload = async (e) => {
+     : [31;1m                                      ^[0m
+ [2m884[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+ [2m885[0m |         e.preventDefault();
+ [2m885[0m |         try {
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:881:1]
+ [2m881[0m | 
+ [2m882[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m883[0m |     const handleDownload = async (e) => {
+ [2m884[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+     : [31;1m        ^^[0m
+ [2m885[0m |         e.preventDefault();
+ [2m886[0m |         try {
+ [2m886[0m |             const res = await fetch(getDownloadUrl(downloadUrl));
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/(core)/resource/[resourceId]/page.js
+ GET /browse?field=ia&semester=S2&module=ia_m10 500 in 11ms
+ ○ Compiling /_not-found ...
+ ⨯ ./app/(core)/resource/[resourceId]/page.js
+Error: 
+  [31mx[0m Unexpected token. Did you mean `{'>'}` or `&gt;`?
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:880:1]
+ [2m880[0m |                     </CardContent>
+ [2m881[0m | 
+ [2m882[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m883[0m |     const handleDownload = async (e) => {
+     : [31;1m                                      ^[0m
+ [2m884[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+ [2m885[0m |         e.preventDefault();
+ [2m885[0m |         try {
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:881:1]
+ [2m881[0m | 
+ [2m882[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m883[0m |     const handleDownload = async (e) => {
+ [2m884[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+     : [31;1m        ^^[0m
+ [2m885[0m |         e.preventDefault();
+ [2m886[0m |         try {
+ [2m886[0m |             const res = await fetch(getDownloadUrl(downloadUrl));
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/(core)/resource/[resourceId]/page.js
+ GET /_next/static/webpack/0081aa80ea0abac5.webpack.hot-update.json 500 in 1023ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /browse?field=ia&semester=S2&module=ia_m10 500 in 9ms
+ ⨯ ./app/(core)/resource/[resourceId]/page.js
+Error: 
+  [31mx[0m Unexpected token. Did you mean `{'>'}` or `&gt;`?
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:902:1]
+ [2m902[0m |                     </CardContent>
+ [2m903[0m | 
+ [2m904[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m905[0m |     const handleDownload = async (e) => {
+     : [31;1m                                      ^[0m
+ [2m906[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+ [2m907[0m |         e.preventDefault();
+ [2m907[0m |         try {
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4mC:\Users\PC\Desktop\ESTT-Community\app\(core)\resource\[resourceId]\page.js[0m:903:1]
+ [2m903[0m | 
+ [2m904[0m |                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
+ [2m905[0m |     const handleDownload = async (e) => {
+ [2m906[0m |         if (!isGoogleHostedFile(downloadUrl)) return;
+     : [31;1m        ^^[0m
+ [2m907[0m |         e.preventDefault();
+ [2m908[0m |         try {
+ [2m908[0m |             const res = await fetch(getDownloadUrl(downloadUrl));
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/(core)/resource/[resourceId]/page.js
+ GET /_next/static/webpack/0081aa80ea0abac5.webpack.hot-update.json 500 in 831ms
+ GET /browse?field=ia&semester=S2&module=ia_m10 500 in 17ms
+ ✓ Compiled /_not-found in 1152ms (4410 modules)
+ GET /browse?field=ia&semester=S2&module=ia_m10 200 in 196ms

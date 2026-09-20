@@ -604,6 +604,28 @@ export default function ResourcePage() {
         return url;
     };
 
+    const handleDownload = async (e) => {
+        if (!isGoogleHostedFile(downloadUrl)) return;
+        e.preventDefault();
+        try {
+            const res = await fetch(getDownloadUrl(downloadUrl));
+            const blob = await res.blob();
+            const cd = res.headers.get('content-disposition') || '';
+            const fnMatch = cd.match(/filename="?([^";\n]+)"?/);
+            const fileName = fnMatch ? fnMatch[1] : 'download';
+            const url = URL.createObjectURL(blob);
+            const tmp = document.createElement('a');
+            tmp.href = url;
+            tmp.download = fileName;
+            document.body.appendChild(tmp);
+            tmp.click();
+            document.body.removeChild(tmp);
+            URL.revokeObjectURL(url);
+        } catch (_) {
+            window.open(getDownloadUrl(downloadUrl), '_blank');
+        }
+    };
+
     return (
         <main className="min-h-screen bg-muted/50 py-8 px-4">
             <div className="max-w-4xl mx-auto space-y-6">
@@ -881,7 +903,7 @@ export default function ResourcePage() {
 
                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
                         <Button asChild className="gap-2 flex-1 sm:flex-none">
-                            <a href={getDownloadUrl(downloadUrl)} target="_blank" rel="noopener noreferrer">
+                            <a href={getDownloadUrl(downloadUrl)} target="_blank" rel="noopener noreferrer" onClick={handleDownload}>
                                 <Download className="w-4 h-4" />
                                 Télécharger
                             </a>

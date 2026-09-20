@@ -60,10 +60,12 @@ export async function GET(req) {
 
         let buffer;
         let contentType;
+        let fileName = 'download';
 
         if (metaRes.ok) {
             const meta = await metaRes.json();
             contentType = meta.mimeType || 'application/octet-stream';
+            fileName = meta.name || 'download';
 
             const isNativeGoogle = meta.mimeType && meta.mimeType.startsWith('application/vnd.google-apps.');
             const isDocsUrl = /docs\.google\.com\/document\/d\//.test(fileUrl);
@@ -75,6 +77,9 @@ export async function GET(req) {
                 if (exportRes.ok) {
                     buffer = await exportRes.arrayBuffer();
                     contentType = 'application/pdf';
+                    if (!fileName.toLowerCase().endsWith('.pdf')) {
+                        fileName = fileName.replace(/\.[^.]+$/, '') + '.pdf';
+                    }
                 }
             } else {
                 const fileRes = await fetch(
@@ -100,10 +105,11 @@ export async function GET(req) {
             contentType = pubRes.headers.get('content-type') || 'application/octet-stream';
         }
 
+        const safeName = fileName.replace(/[^a-zA-Z0-9._\-\u00C0-\u024F ]/g, '_');
         return new NextResponse(buffer, {
             headers: {
                 'Content-Type': contentType,
-                'Content-Disposition': 'attachment',
+                'Content-Disposition': `attachment; filename="${safeName}"`,
                 'Cache-Control': 'public, max-age=3600',
             },
         });
