@@ -105,11 +105,12 @@ export async function GET(req) {
             if (pubFn) fileName = pubFn[1];
         }
 
-        const safeName = fileName.replace(/[^a-zA-Z0-9._\-\u00C0-\u024F ]/g, '_');
+        const asciiName = fileName.replace(/[^\x20-\x7E]/g, '_');
+        const encodedName = encodeURIComponent(fileName).replace(/'/g, "%27");
         return new NextResponse(buffer, {
             headers: {
                 'Content-Type': contentType,
-                'Content-Disposition': `attachment; filename="${safeName}"`,
+                'Content-Disposition': `attachment; filename="${asciiName}"; filename*=UTF-8''${encodedName}`,
                 'Cache-Control': 'public, max-age=3600',
             },
         });
