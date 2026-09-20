@@ -613,20 +613,31 @@ export default function ResourcePage() {
         }
         try {
             const res = await fetch(url);
-            const blob = await res.blob();
+            const buf = await res.arrayBuffer();
             const cd = res.headers.get('content-disposition') || '';
             const fnMatch = cd.match(/filename="?([^";\n]+)"?/);
-            const fileName = fnMatch ? fnMatch[1] : (resource.fileName || resource.title || 'download.pdf');
+            const fileName = fnMatch ? fnMatch[1] : (resource.fileName || resource.title || 'download');
+            const blob = new Blob([buf], { type: 'application/octet-stream' });
             const blobUrl = URL.createObjectURL(blob);
             const tmp = document.createElement('a');
             tmp.href = blobUrl;
             tmp.download = fileName;
+            tmp.style.display = 'none';
+            document.body.appendChild(tmp);
+            tmp.click();
+            setTimeout(() => {
+                document.body.removeChild(tmp);
+                URL.revokeObjectURL(blobUrl);
+            }, 100);
+        } catch (err) {
+            console.error('Download failed:', err);
+            const tmp = document.createElement('a');
+            tmp.href = url;
+            tmp.download = resource.fileName || resource.title || 'download';
+            tmp.style.display = 'none';
             document.body.appendChild(tmp);
             tmp.click();
             document.body.removeChild(tmp);
-            URL.revokeObjectURL(blobUrl);
-        } catch (_) {
-            window.open(url, '_blank');
         }
     };
 

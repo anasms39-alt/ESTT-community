@@ -1217,3 +1217,8 @@ Import trace for requested module:
  ✓ Compiled in 422ms (4423 modules)
  ✓ Compiled in 899ms (4423 modules)
  ✓ Compiled in 429ms (4423 modules)
+ ○ Compiling /api/file-proxy ...
+ ✓ Compiled /api/file-proxy in 523ms (2268 modules)
+ GET /api/file-proxy?download=1&url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 15038ms
+ HEAD /api/file-proxy?download=1&url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1GVechW1LG0NYFk5SI7C6M4uVzEu5KCqB%2Fview%3Fusp%3Ddrive_link 200 in 12479ms
+ ✓ Compiled in 999ms (4423 modules)
