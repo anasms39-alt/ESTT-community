@@ -305,12 +305,17 @@ export default function ResourcePage() {
         if (!fileId) return null;
 
         const origin = typeof window !== 'undefined' ? window.location.origin : '';
-        const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
 
         if (/docs\.google\.com\/document\/d\//.test(url)) {
-            return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(proxyUrl)}`;
+            const previewUrl = url.replace(/\/(edit|view|copy).*$/, '/preview');
+            return previewUrl;
         }
 
+        if (/docs\.google\.com\/presentation\/d\//.test(url)) {
+            return `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+        }
+
+        const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
         return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
     };
 
@@ -784,75 +789,30 @@ export default function ResourcePage() {
 
                         {!getYouTubeEmbedUrl(downloadUrl) && isPdfUrl(downloadUrl) && (
                             <div className="w-full h-[60vh] sm:h-[600px] md:h-[700px] rounded-xl overflow-hidden border shadow-sm bg-muted transition-all hover:shadow-md">
-                                {isGoogleHostedFile(downloadUrl) ? (
-                                    <iframe
-                                        width="100%"
-                                        height="100%"
-                                        src={`/api/file-proxy?url=${encodeURIComponent(downloadUrl)}`}
-                                        title="PDF viewer"
-                                        frameBorder="0"
-                                    >
-                                        <div className="flex flex-col items-center justify-center h-full p-6 text-center text-muted-foreground bg-muted/50">
-                                            <FileText className="w-12 h-12 mb-3 text-muted-foreground" />
-                                            <p className="mb-4">Votre navigateur ne supporte pas l'affichage direct des PDF.</p>
-                                            <Button asChild>
-                                                <a href={downloadUrl} target="_blank" rel="noopener noreferrer" className="gap-2">
-                                                    <Download className="w-4 h-4" />
-                                                    Téléchargez le PDF
-                                                </a>
-                                            </Button>
-                                        </div>
-                                    </iframe>
-                                ) : (
-                                    <object
-                                        data={downloadUrl}
-                                        type="application/pdf"
-                                        width="100%"
-                                        height="100%"
-                                    >
-                                        <iframe
-                                            width="100%"
-                                            height="100%"
-                                            src={downloadUrl}
-                                            title="PDF viewer"
-                                            frameBorder="0"
-                                        >
-                                            <div className="flex flex-col items-center justify-center h-full p-6 text-center text-muted-foreground bg-muted/50">
-                                                <FileText className="w-12 h-12 mb-3 text-muted-foreground" />
-                                                <p className="mb-4">Votre navigateur ne supporte pas l'affichage direct des PDF.</p>
-                                                <Button asChild>
-                                                    <a href={downloadUrl} target="_blank" rel="noopener noreferrer" className="gap-2">
-                                                        <Download className="w-4 h-4" />
-                                                        Téléchargez le PDF
-                                                    </a>
-                                                </Button>
-                                            </div>
-                                        </iframe>
-                                    </object>
-                                )}
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src={isGoogleHostedFile(downloadUrl)
+                                        ? getGoogleWorkspaceEmbedUrl(downloadUrl)
+                                        : `https://docs.google.com/gview?url=${encodeURIComponent(downloadUrl)}&embedded=true`
+                                    }
+                                    title="PDF viewer"
+                                    frameBorder="0"
+                                    allowFullScreen
+                                ></iframe>
                             </div>
                         )}
 
                         {!getYouTubeEmbedUrl(downloadUrl) && !isPdfUrl(downloadUrl) && getGoogleWorkspaceEmbedUrl(downloadUrl) && (
                             <div className="w-full h-[60vh] sm:h-[600px] md:h-[700px] rounded-xl overflow-hidden border shadow-sm bg-muted transition-all hover:shadow-md">
-                                {isGoogleHostedFile(downloadUrl) && resource.type === 'pdf' ? (
-                                    <iframe
-                                        width="100%"
-                                        height="100%"
-                                        src={`/api/file-proxy?url=${encodeURIComponent(downloadUrl)}`}
-                                        title="PDF viewer"
-                                        frameBorder="0"
-                                    ></iframe>
-                                ) : (
-                                    <iframe
-                                        width="100%"
-                                        height="100%"
-                                        src={getGoogleWorkspaceEmbedUrl(downloadUrl)}
-                                        title="Google Workspace viewer"
-                                        frameBorder="0"
-                                        allowFullScreen
-                                    ></iframe>
-                                )}
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src={getGoogleWorkspaceEmbedUrl(downloadUrl)}
+                                    title="Google Workspace viewer"
+                                    frameBorder="0"
+                                    allowFullScreen
+                                ></iframe>
                             </div>
                         )}
 

@@ -64,7 +64,8 @@ export async function GET(req) {
 
         const isGoogleNative = meta.mimeType && meta.mimeType.startsWith('application/vnd.google-apps.');
         if (isGoogleNative) {
-            return NextResponse.json({ error: 'Google native format' }, { status: 400 });
+            const previewUrl = fileUrl.replace(/\/(edit|view).*$/, '/preview');
+            return NextResponse.redirect(previewUrl);
         }
 
         const fileRes = await fetch(
