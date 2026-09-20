@@ -605,24 +605,26 @@ export default function ResourcePage() {
     };
 
     const handleDownload = async (e) => {
-        if (!isGoogleHostedFile(downloadUrl)) return;
+        const url = isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl;
+        const isPdf = isPdfUrl(downloadUrl);
+        if (!isPdf) return;
         e.preventDefault();
         try {
-            const res = await fetch(getDownloadUrl(downloadUrl));
+            const res = await fetch(url);
             const blob = await res.blob();
             const cd = res.headers.get('content-disposition') || '';
             const fnMatch = cd.match(/filename="?([^";\n]+)"?/);
-            const fileName = fnMatch ? fnMatch[1] : (resource.fileName || resource.title || 'download');
-            const url = URL.createObjectURL(blob);
+            const fileName = fnMatch ? fnMatch[1] : (resource.fileName || resource.title || 'download.pdf');
+            const blobUrl = URL.createObjectURL(blob);
             const tmp = document.createElement('a');
-            tmp.href = url;
+            tmp.href = blobUrl;
             tmp.download = fileName;
             document.body.appendChild(tmp);
             tmp.click();
             document.body.removeChild(tmp);
-            URL.revokeObjectURL(url);
+            URL.revokeObjectURL(blobUrl);
         } catch (_) {
-            window.open(getDownloadUrl(downloadUrl), '_blank');
+            window.open(url, '_blank');
         }
     };
 
@@ -903,17 +905,10 @@ export default function ResourcePage() {
 
                     <CardFooter className="py-4 border-t flex flex-wrap gap-4 justify-between items-center">
                         <Button asChild className="gap-2 flex-1 sm:flex-none">
-                            {isGoogleHostedFile(downloadUrl) ? (
-                                <a href={getDownloadUrl(downloadUrl)} onClick={handleDownload}>
-                                    <Download className="w-4 h-4" />
-                                    Télécharger
-                                </a>
-                            ) : (
-                                <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-                                    <Download className="w-4 h-4" />
-                                    Télécharger
-                                </a>
-                            )}
+                            <a href={isGoogleHostedFile(downloadUrl) ? getDownloadUrl(downloadUrl) : downloadUrl} target="_blank" rel="noopener noreferrer" onClick={handleDownload}>
+                                <Download className="w-4 h-4" />
+                                Télécharger
+                            </a>
                         </Button>
                         <Button variant="outline" size="sm" onClick={handleShare} className="gap-2 text-muted-foreground hover:text-primary flex-1 sm:flex-none">
                             <Share2 className="w-4 h-4" />
