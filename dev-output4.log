@@ -294,3 +294,671 @@ Slack webhook URL for channel "admin" is not defined
 Slack webhook URL for channel "admin" is not defined
  POST /api/slack/notify 500 in 9ms
  POST /api/contribute-notify 200 in 2449ms
+ GET /admin 200 in 589ms
+ GET /admin 200 in 90ms
+ GET /admin 200 in 142ms
+ GET /admin 200 in 87ms
+ ○ Compiling /browse ...
+ ✓ Compiled /browse in 2.4s (2064 modules)
+ ○ Compiling /resource/[resourceId] ...
+ ✓ Compiled /resource/[resourceId] in 3.6s (4202 modules)
+ ✓ Compiled in 698ms (2139 modules)
+ ✓ Compiled /api/utils/ip in 422ms (2093 modules)
+ GET /api/utils/ip 200 in 2352ms
+ ✓ Compiled in 951ms (4197 modules)
+ ✓ Compiled in 927ms (4197 modules)
+ ✓ Compiled in 427ms (4197 modules)
+ GET /resource/test 200 in 141ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 836ms (2088 modules)
+ GET /api/utils/ip 200 in 2969ms
+ ✓ Compiled in 800ms (4197 modules)
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 374ms
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 115ms
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 80ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 748ms (2088 modules)
+ GET /api/utils/ip 200 in 2983ms
+ ✓ Compiled in 782ms (4197 modules)
+ ✓ Compiled /api/utils/ip in 146ms (2088 modules)
+ GET /api/utils/ip 200 in 2542ms
+ ✓ Compiled in 935ms (4227 modules)
+ ✓ Compiled in 763ms (4197 modules)
+ GET /resource/test 200 in 124ms
+ ✓ Compiled in 841ms (4197 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 806ms (4197 modules)
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 204ms
+ ✓ Compiled /api/utils/ip in 130ms (2088 modules)
+ GET /api/utils/ip 200 in 1904ms
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 187ms
+ GET /api/utils/ip 200 in 27ms
+ GET /api/utils/ip 200 in 43ms
+ GET /api/utils/ip 200 in 33ms
+ GET /api/utils/ip 200 in 18ms
+ GET /api/utils/ip 200 in 47ms
+ GET /api/utils/ip 200 in 41ms
+ ✓ Compiled in 1122ms (4197 modules)
+ GET /resource/test 200 in 61ms
+ GET /resource/-Osfa0bbAWdrEzDwrjLu 200 in 91ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 656ms (2088 modules)
+ GET /api/utils/ip 200 in 3147ms
+ GET /api/utils/ip 200 in 36ms
+ ✓ Compiled in 867ms (4197 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 646ms (2088 modules)
+ GET /api/utils/ip 200 in 2467ms
+ ✓ Compiled in 847ms (4197 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 653ms (2088 modules)
+ GET /api/utils/ip 200 in 2680ms
+ GET /api/utils/ip 200 in 21ms
+ GET /api/utils/ip 200 in 27ms
+ GET /api/utils/ip 200 in 31ms
+ GET /api/utils/ip 200 in 33ms
+ GET /api/utils/ip 200 in 35ms
+ GET /api/utils/ip 200 in 17ms
+ GET /api/utils/ip 200 in 30ms
+ ✓ Compiled in 871ms (4227 modules)
+ ✓ Compiled in 1105ms (4197 modules)
+ ✓ Compiled /api/file-proxy in 393ms (4197 modules)
+ ✓ Compiled in 0ms (3304 modules)
+Export failed, falling back to preview redirect: Request failed with status code 403
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 307 in 6887ms
+ ✓ Compiled in 1244ms (4197 modules)
+ ✓ Compiled in 422ms (4197 modules)
+ ✓ Compiled /api/utils/ip in 305ms (2088 modules)
+ GET /api/utils/ip 200 in 2134ms
+ GET /resource/-Osfa0bbAWdrEzDwrjLu 200 in 231ms
+ GET /api/utils/ip 200 in 53ms
+ GET /resource/-Osfa0bbAWdrEzDwrjLu 200 in 57ms
+ GET /api/utils/ip 200 in 19ms
+ GET /api/utils/ip 200 in 28ms
+ ✓ Compiled in 444ms (2139 modules)
+ ✓ Compiled /api/file-proxy in 780ms (4197 modules)
+ ✓ Compiled in 1ms (2228 modules)
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 9690ms
+ ✓ Compiled in 433ms (4367 modules)
+ ✓ Compiled /api/utils/ip in 288ms (2230 modules)
+ GET /api/utils/ip 200 in 321ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 6890ms
+ ✓ Compiled in 847ms (4197 modules)
+ ✓ Compiled /api/file-proxy in 473ms (2228 modules)
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 14942ms
+ GET /resource/-P1yoDLxkf7AmNaN5ljb 200 in 299ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 730ms (2230 modules)
+ GET /api/utils/ip 200 in 1184ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 4160ms
+ GET /api/utils/ip 200 in 72ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1deW-bxsDsTc2eZdA-h_Lg5ZL04cRPEKS%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 1125ms
+ ✓ Compiled in 856ms (4197 modules)
+ ✓ Compiled in 427ms (2139 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 606ms (2088 modules)
+ GET /api/utils/ip 200 in 2244ms
+ ✓ Compiled in 905ms (4227 modules)
+ ✓ Compiled /api/file-proxy in 385ms (2230 modules)
+ GET /api/utils/ip 200 in 792ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 5799ms
+ GET /api/utils/ip 200 in 43ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F11n49irsb8tG9p13T3393m130VQSVqMBl%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 1606ms
+ GET /api/utils/ip 200 in 50ms
+ ○ Compiling /api/drive/auth ...
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1deW-bxsDsTc2eZdA-h_Lg5ZL04cRPEKS%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 3506ms
+ ✓ Compiled /api/drive/auth in 3s (3308 modules)
+ GET /api/drive/auth 307 in 4371ms
+ GET /api/utils/ip 200 in 35ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1deW-bxsDsTc2eZdA-h_Lg5ZL04cRPEKS%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 1958ms
+ GET /resource/-P1lE_PLw9w9m0OdO7VZ 200 in 252ms
+ GET /api/utils/ip 200 in 41ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1deW-bxsDsTc2eZdA-h_Lg5ZL04cRPEKS%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 2373ms
+ GET /api/utils/ip 200 in 70ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 2061ms
+ GET /api/utils/ip 200 in 44ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 2935ms
+ ✓ Compiled in 1075ms (4369 modules)
+ GET /api/utils/ip 200 in 56ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1y8OKQyvoYOz6NH5HLXZCLUM4_lx46Gle%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 1562ms
+ GET /api/utils/ip 200 in 39ms
+ GET /api/utils/ip 200 in 67ms
+ GET /api/utils/ip 200 in 41ms
+ GET /api/utils/ip 200 in 37ms
+ ○ Compiling /api/drive/auth ...
+ ✓ Compiled /api/drive/auth in 879ms (3165 modules)
+ GET /api/drive/auth 307 in 1886ms
+ ✓ Compiled in 1029ms (5304 modules)
+ ✓ Compiled /api/fix-permissions in 405ms (3304 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 587ms (3306 modules)
+ GET /api/utils/ip 200 in 643ms
+ GET /api/fix-permissions 200 in 39434ms
+ GET /api/utils/ip 200 in 65ms
+ GET /resource/-P1lGY-qad1qNi8PMxBs 200 in 201ms
+ GET /api/utils/ip 200 in 31ms
+ GET /browse?field=ia&semester=S2&module=ia_m14 200 in 72ms
+ GET /api/utils/ip 200 in 18ms
+ GET /api/utils/ip 200 in 31ms
+ GET /api/utils/ip 200 in 45ms
+ ○ Compiling /api/file-proxy ...
+ ✓ Compiled /api/file-proxy in 1048ms (2230 modules)
+ GET /api/utils/ip 200 in 2001ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1Fj1SZDkJs9aTfulWpzgeuCk3gj7kyPuc%2Fview%3Fusp%3Ddrivesdk 200 in 10528ms
+ GET /api/utils/ip 200 in 40ms
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:113:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview%3Fusp%3Ddrivesdk 500 in 3137ms
+ GET /api/utils/ip 200 in 40ms
+Export error: 403 {
+  "error": {
+    "code": 403,
+    "message": "Export only supports Docs Editors files.",
+    "errors": [
+      {
+        "message": "Export only supports Docs Editors files.",
+        "domain": "global",
+        "reason": "fileNotExportable"
+      }
+    ]
+  }
+}
+
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1mxHydleTEXMrH5Ef0IAd6ZHnvJLvBRG8%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 500 in 1884ms
+ ✓ Compiled in 965ms (4197 modules)
+ GET /browse?field=ia&semester=S2&module=ia_m10 200 in 182ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 731ms (2088 modules)
+ GET /api/utils/ip 200 in 2916ms
+ GET /api/utils/ip 200 in 31ms
+ GET /api/utils/ip 200 in 18ms
+ GET /api/utils/ip 200 in 28ms
+ GET /api/utils/ip 200 in 53ms
+ GET /api/utils/ip 200 in 27ms
+ GET /api/utils/ip 200 in 79ms
+ ✓ Compiled in 1748ms (4197 modules)
+ ✓ Compiled in 439ms (2139 modules)
+ ○ Compiling /api/file-proxy ...
+ ✓ Compiled /api/file-proxy in 988ms (2228 modules)
+ GET /browse?field=ia&semester=S2&module=ia_m14 200 in 180ms
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:114:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https://drive.google.com/file/d/10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz/view?usp=drivesdk 500 in 11262ms
+ ✓ Compiled /api/utils/ip in 344ms (2230 modules)
+ GET /api/utils/ip 200 in 429ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1fVcI8rctKjZCSnpj18kdgSeBn1NJaYIG%2Fview%3Fusp%3Ddrivesdk 200 in 10198ms
+ GET /api/utils/ip 200 in 111ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1UnJt55BK7z2uPBJ1HAUYLkxx2E1q3BRp%2Fview%3Fusp%3Ddrivesdk 200 in 3478ms
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:114:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https://drive.google.com/file/d/10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz/view 500 in 2550ms
+ GET /api/utils/ip 200 in 93ms
+Drive meta error: 404
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F19Bv8_Qfk5UgvvTkS8e_RUbg6GXxbpFak%2Fview%3Fusp%3Dsharing 404 in 3187ms
+ GET /api/utils/ip 200 in 29ms
+ GET /api/utils/ip 200 in 172ms
+ ✓ Compiled in 2.2s (4369 modules)
+ GET /api/utils/ip 200 in 63ms
+ GET /api/utils/ip 200 in 36ms
+ GET /api/utils/ip 200 in 46ms
+ GET /browse?field=ia&semester=S2&module=ia_m10 200 in 261ms
+ GET /api/utils/ip 200 in 50ms
+ GET /api/utils/ip 200 in 21ms
+ ✓ Compiled in 988ms (4197 modules)
+ ✓ Compiled /api/file-proxy in 164ms (2228 modules)
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:94:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https://drive.google.com/file/d/10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz/view 500 in 7676ms
+ GET /api/file-proxy?url=test 400 in 12ms
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:94:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview 500 in 6759ms
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:94:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview 500 in 2033ms
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 771ms (2088 modules)
+ GET /api/utils/ip 200 in 829ms
+ GET /api/utils/ip 200 in 21ms
+ GET /api/utils/ip 200 in 22ms
+ GET /api/utils/ip 200 in 25ms
+ ✓ Compiled in 776ms (4197 modules)
+ ✓ Compiled in 317ms (2139 modules)
+ ✓ Compiled in 640ms (4183 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 737ms (2088 modules)
+ GET /api/utils/ip 200 in 2954ms
+ GET /api/utils/ip 200 in 19ms
+ GET /api/utils/ip 200 in 19ms
+ GET /api/utils/ip 200 in 36ms
+ ✓ Compiled in 896ms (4197 modules)
+ ✓ Compiled in 446ms (2139 modules)
+ ✓ Compiled in 266ms (2139 modules)
+ ✓ Compiled in 864ms (4183 modules)
+ ✓ Compiled /api/file-proxy in 444ms (2228 modules)
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:102:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview 500 in 8053ms
+ ○ Compiling / ...
+ ✓ Compiled / in 622ms (2078 modules)
+ GET / 200 in 1037ms
+ ✓ Compiled in 344ms (2139 modules)
+ ✓ Compiled /api/file-proxy in 171ms (2248 modules)
+File proxy error: TypeError: Cannot convert argument to a ByteString because the character at index 34 has a value of 8217 which is greater than 255.
+    at webidl.converters.ByteString (node:internal/deps/undici/undici:5172:17)
+    at Object.record<ByteString, ByteString> (node:internal/deps/undici/undici:5041:32)
+    at webidl.converters.HeadersInit (node:internal/deps/undici/undici:11303:67)
+    at Object.ResponseInit (node:internal/deps/undici/undici:5095:21)
+    at new Response (node:internal/deps/undici/undici:11406:34)
+    at new NextResponse (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/response.js:40:9)
+    at GET (webpack-internal:///(rsc)/./app/api/file-proxy/route.js:102:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:57228
+    at async eT.execute (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:46851)
+    at async eT.handle (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:58760)
+    at async doRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1496:28)
+    at async DevServer.renderPageComponent (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\PC\Desktop\ESTT-Community\node_modules\next\dist\server\lib\start-server.js:141:13)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview 500 in 6544ms
+ ✓ Compiled in 337ms (4367 modules)
+ GET /api/file-proxy?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F10twqyg9eAJ-1GtK5kznRoItkiNeMrUVz%2Fview 200 in 3724ms
+ ✓ Compiled in 861ms (4197 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 600ms (2088 modules)
+ GET /api/utils/ip 200 in 2215ms
+ GET /api/utils/ip 200 in 25ms
+ ✓ Compiled in 930ms (4197 modules)
+ ✓ Compiled /api/file-proxy in 339ms (2088 modules)
+ ✓ Compiled (2230 modules)
+ GET /api/utils/ip 200 in 1898ms
+ GET /api/file-proxy?url=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1knmck9Sid7fu4v9ughtnpyoInnPo9vCI%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D115158937275812490655%26rtpof%3Dtrue%26sd%3Dtrue 200 in 13893ms
+ ✓ Compiled in 851ms (4197 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 681ms (2088 modules)
+ GET /api/utils/ip 200 in 1702ms
+ ✓ Compiled in 431ms (2139 modules)
+ ✓ Compiled in 875ms (4197 modules)
+ ✓ Compiled in 387ms (2139 modules)
+ ○ Compiling /api/utils/ip ...
+ ✓ Compiled /api/utils/ip in 595ms (2088 modules)
+ GET /api/utils/ip 200 in 2369ms
+ GET /api/utils/ip 200 in 44ms
+ GET /api/utils/ip 200 in 28ms
+ GET /api/utils/ip 200 in 30ms
+ GET /api/utils/ip 200 in 44ms
+ ✓ Compiled in 1102ms (4197 modules)
+ ✓ Compiled in 693ms (4197 modules)
+ ✓ Compiled in 436ms (2139 modules)
+ ✓ Compiled in 434ms (2139 modules)
+ ✓ Compiled in 1827ms (4183 modules)
+ ✓ Compiled in 1467ms (4197 modules)
+ ✓ Compiled in 892ms (4197 modules)

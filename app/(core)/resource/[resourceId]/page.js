@@ -293,24 +293,15 @@ export default function ResourcePage() {
     const getGoogleWorkspaceEmbedUrl = (url) => {
         if (!url) return null;
 
-        // Match general Google Docs/Sheets/Slides/Forms formats
-        // Typically: https://docs.google.com/document/d/FILE_ID/edit
-        // We want to replace /edit, /view, etc. with /preview
-        const googleDocsRegex = /(https:\/\/docs\.google\.com\/(?:document|spreadsheets|presentation|forms)\/d\/[a-zA-Z0-9-_]+)\/(?:edit|view|copy)?(.*)?/i;
+        const docsMatch = url.match(/docs\.google\.com\/(?:document|spreadsheets|presentation|forms)\/d\/([a-zA-Z0-9_-]+)/);
+        const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+        const fileId = (docsMatch && docsMatch[1]) || (driveMatch && driveMatch[1]);
 
-        const match = url.match(googleDocsRegex);
-        if (match && match[1]) {
-            return `${match[1]}/preview`;
-        }
+        if (!fileId) return null;
 
-        // Handle drive folder/file sharing links (some can be previewed)
-        const driveRegex = /(https:\/\/drive\.google\.com\/file\/d\/[a-zA-Z0-9-_]+)\/(?:edit|view)?(.*)?/i;
-        const driveMatch = url.match(driveRegex);
-        if (driveMatch && driveMatch[1]) {
-            return `${driveMatch[1]}/preview`;
-        }
-
-        return null;
+        const origin = typeof window !== 'undefined' ? window.location.origin : '';
+        const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
+        return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
     };
 
     const isPdfUrl = (url) => {
