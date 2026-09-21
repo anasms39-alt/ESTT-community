@@ -307,8 +307,9 @@ export default function ResourcePage() {
 
         if (!fileId) return null;
 
-        const origin = typeof window !== 'undefined' ? window.location.origin : '';
-        const proxyUrl = `${origin}/api/file-proxy?url=${encodeURIComponent(url)}`;
+        const proxyUrl = typeof window !== 'undefined'
+            ? `${window.location.origin}/api/file-proxy?url=${encodeURIComponent(url)}`
+            : `/api/file-proxy?url=${encodeURIComponent(url)}`;
         return `https://docs.google.com/gview?url=${encodeURIComponent(proxyUrl)}&embedded=true`;
     };
 
@@ -578,6 +579,28 @@ export default function ResourcePage() {
         }
     };
 
+    const getPreviewProxyUrl = (url) => {
+        if (!url || !isGoogleHostedFile(url)) return null;
+        return `/api/file-proxy?url=${encodeURIComponent(url)}`;
+    };
+
+    const getDownloadUrl = (url) => {
+        if (isGoogleHostedFile(url)) {
+            return `/api/file-proxy?download=1&url=${encodeURIComponent(url)}`;
+        }
+        return url;
+    };
+
+    useEffect(() => {
+        const downloadUrl = ensureProtocol(resource?.url || resource?.link || resource?.file);
+        const proxyUrl = getPreviewProxyUrl(downloadUrl);
+        if (!proxyUrl) return;
+        setPreviewAvailable(null);
+        fetch(proxyUrl, { method: 'HEAD' })
+            .then((res) => setPreviewAvailable(res.ok))
+            .catch(() => setPreviewAvailable(false));
+    }, [resource]);
+
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -598,28 +621,6 @@ export default function ResourcePage() {
     }
 
     const downloadUrl = ensureProtocol(resource.url || resource.link || resource.file);
-
-    const getDownloadUrl = (url) => {
-        if (isGoogleHostedFile(url)) {
-            const origin = typeof window !== 'undefined' ? window.location.origin : '';
-            return `${origin}/api/file-proxy?download=1&url=${encodeURIComponent(url)}`;
-        }
-        return url;
-    };
-
-    const previewProxyUrl = (() => {
-        if (!downloadUrl || !isGoogleHostedFile(downloadUrl)) return null;
-        const origin = typeof window !== 'undefined' ? window.location.origin : '';
-        return `${origin}/api/file-proxy?url=${encodeURIComponent(downloadUrl)}`;
-    })();
-
-    useEffect(() => {
-        if (!previewProxyUrl) return;
-        setPreviewAvailable(null);
-        fetch(previewProxyUrl, { method: 'HEAD' })
-            .then((res) => setPreviewAvailable(res.ok))
-            .catch(() => setPreviewAvailable(false));
-    }, [previewProxyUrl]);
 
     const handleDownload = async (e) => {
         e.preventDefault();
