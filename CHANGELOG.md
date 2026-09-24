@@ -1,3 +1,5 @@
+## [1.35.6](https://github.com/torchcoders/ESTT-community/compare/v1.35.5...v1.35.6) (2026-09-24)
+
 ## [1.35.5](https://github.com/torchcoders/ESTT-community/compare/v1.35.4...v1.35.5) (2026-09-24)
 
 ## [1.35.4](https://github.com/torchcoders/ESTT-community/compare/v1.35.3...v1.35.4) (2026-09-21)
