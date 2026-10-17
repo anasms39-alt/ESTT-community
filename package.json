@@ -10,6 +10,7 @@
     "clean:anonymous-users": "node scripts/clean-anonymous-firebase-users.js"
   },
   "dependencies": {
+    "@dotlottie/react-player": "^1.6.19",
     "@google/generative-ai": "^0.24.1",
     "@grpc/proto-loader": "^0.8.0",
     "@primer/octicons-react": "^19.33.0",
@@ -40,6 +41,7 @@
     "jspdf": "^4.2.0",
     "jspdf-autotable": "^5.0.7",
     "katex": "0.16.47",
+    "lottie-react": "^3.1.2",
     "lucide-react": "^0.562.0",
     "mammoth": "^1.12.1",
     "next": "^14.0.4",
