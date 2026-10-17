@@ -1,3 +1,11 @@
+## [1.38.6](https://github.com/torchcoders/ESTT-community/compare/v1.38.5...v1.38.6) (2026-10-17)
+
+
+### Bug Fixes
+
+* **club:** apply change requests to the real club id instead of username slug ([9bd816a](https://github.com/torchcoders/ESTT-community/commit/9bd816adc3c4ac32b331eff3d6ec5dde72048749))
+* **club:** Merge PR [#54](https://github.com/torchcoders/ESTT-community/issues/54): apply change requests to the real club id instead of usern… ([3514e19](https://github.com/torchcoders/ESTT-community/commit/3514e191e6108946d9637a3847deffe763bd9749))
+
 ## [1.38.5](https://github.com/torchcoders/ESTT-community/compare/v1.38.4...v1.38.5) (2026-10-09)
 
 ## [1.38.4](https://github.com/torchcoders/ESTT-community/compare/v1.38.3...v1.38.4) (2026-10-07)
