@@ -1096,7 +1096,7 @@ export default function ClubAdminPage() {
             const newRequestRef = push(requestsRef);
 
             const requestData = {
-                clubId,
+                clubId: databaseClubId,
                 clubName: club.name,
                 changeType: changeRequest.type,
                 newData: changeRequest.type === 'name'
