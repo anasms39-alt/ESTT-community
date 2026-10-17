@@ -17,7 +17,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, ArrowLeft, AlertCircle, CheckCircle2, FileText, Megaphone, Calendar, Edit, Trash2, Plus, Upload, Ticket, Users, LayoutDashboard, Settings, Menu, Share2, ClipboardList, Scan, Bell } from 'lucide-react';
+import { Loader2, ArrowLeft, AlertCircle, CheckCircle2, FileText, Megaphone, Calendar, Edit, Trash2, Plus, Upload, Ticket, Users, LayoutDashboard, Settings, Menu, Share2, ClipboardList, Scan, Bell, Eye } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { sendPrivateNotification, NOTIF_TYPES } from '@/lib/notifications';
@@ -69,6 +69,8 @@ export default function ClubAdminPage() {
     // Join Requests
     const [joinRequests, setJoinRequests] = useState([]);
     const [joinFormQuestions, setJoinFormQuestions] = useState([]); // Custom questions for join form
+    const [selectedRequest, setSelectedRequest] = useState(null); // Selected join request (full view)
+    const [showJoinResponses, setShowJoinResponses] = useState(false); // Show full join responses view
 
     // Tickets
     const [tickets, setTickets] = useState([]);
@@ -155,6 +157,41 @@ export default function ClubAdminPage() {
         } catch (error) {
             console.error('Error exporting all form responses:', error);
             setMessage("Erreur lors de l'exportation des réponses");
+        }
+    };
+
+    const handleGenerateAllJoinResponsesPDF = async () => {
+        if (joinRequests.length === 0) return;
+
+        try {
+            const form = {
+                title: "Demandes d'adhésion",
+                fields: [
+                    { id: 'name', label: 'Nom complet' },
+                    { id: 'email', label: 'Email' },
+                    { id: 'phone', label: 'Téléphone' },
+                    { id: 'reason', label: 'Motivation' },
+                    ...joinFormQuestions.map(q => ({ id: q.id, label: q.label }))
+                ]
+            };
+
+            const data = joinRequests.map(req => ({
+                id: req.id,
+                submittedAt: req.submittedAt,
+                data: {
+                    name: req.name,
+                    email: req.email,
+                    phone: req.phone,
+                    reason: req.reason,
+                    ...(req.answers || {})
+                }
+            }));
+
+            await generateAllFormResponsesPDF(data, form, club);
+            setMessage('Toutes les demandes ont été exportées avec succès');
+        } catch (error) {
+            console.error('Error exporting all join responses:', error);
+            setMessage("Erreur lors de l'exportation des demandes");
         }
     };
 
@@ -2409,10 +2446,197 @@ export default function ClubAdminPage() {
 
                             {/* Join Requests Tab */}
                             <TabsContent value="requests">
+                                {selectedRequest ? (
+                                    <div className="space-y-6">
+                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                                            <Button variant="outline" onClick={() => setSelectedRequest(null)}>
+                                                <ArrowLeft className="w-4 h-4 mr-2" /> Retour
+                                            </Button>
+                                            <div className="flex-1">
+                                                <h2 className="text-2xl font-bold">{selectedRequest.name}</h2>
+                                                <p className="text-muted-foreground">Demande d&apos;adhésion</p>
+                                            </div>
+                                            <div className="flex flex-wrap items-center justify-end gap-2">
+                                                <Button variant="outline" onClick={() => handleGeneratePDF(selectedRequest, 'join', club)}>
+                                                    <FileText className="w-4 h-4 mr-2" /> Exporter en PDF
+                                                </Button>
+                                                <Button
+                                                    className="bg-green-600 hover:bg-green-700"
+                                                    onClick={() => { handleApproveRequest(selectedRequest); setSelectedRequest(null); }}
+                                                >
+                                                    <CheckCircle2 className="w-4 h-4 mr-2" /> Approuver
+                                                </Button>
+                                                <Button
+                                                    variant="destructive"
+                                                    onClick={() => { handleRejectRequest(selectedRequest.id); setSelectedRequest(null); }}
+                                                >
+                                                    <Trash2 className="w-4 h-4 mr-2" /> Rejeter
+                                                </Button>
+                                            </div>
+                                        </div>
+
+                                        <Card>
+                                            <CardHeader>
+                                                <CardTitle>Informations de la demande</CardTitle>
+                                                <CardDescription>
+                                                    Reçue le {new Date(selectedRequest.submittedAt).toLocaleDateString('fr-FR')} à {new Date(selectedRequest.submittedAt).toLocaleTimeString('fr-FR')}
+                                                </CardDescription>
+                                            </CardHeader>
+                                            <CardContent className="space-y-4">
+                                                <div className="grid gap-4 sm:grid-cols-2">
+                                                    <div className="space-y-1">
+                                                        <p className="text-xs font-semibold uppercase text-muted-foreground">Nom complet</p>
+                                                        <p className="text-sm">{selectedRequest.name || '-'}</p>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-xs font-semibold uppercase text-muted-foreground">Email</p>
+                                                        <p className="text-sm">{selectedRequest.email || '-'}</p>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-xs font-semibold uppercase text-muted-foreground">Téléphone</p>
+                                                        <p className="text-sm">{selectedRequest.phone || '-'}</p>
+                                                    </div>
+                                                    <div className="space-y-1 sm:col-span-2">
+                                                        <p className="text-xs font-semibold uppercase text-muted-foreground">Motivation</p>
+                                                        <p className="text-sm whitespace-pre-wrap bg-muted p-3 rounded-md">{selectedRequest.reason || '-'}</p>
+                                                    </div>
+                                                </div>
+
+                                                {selectedRequest.answers && Object.keys(selectedRequest.answers).length > 0 && (
+                                                    <div className="space-y-3 pt-4 border-t">
+                                                        <p className="text-sm font-semibold text-primary">Réponses complémentaires</p>
+                                                        <div className="grid gap-4 sm:grid-cols-2">
+                                                            {joinFormQuestions.map(q => selectedRequest.answers[q.id] !== undefined && (
+                                                                <div key={q.id} className="space-y-1">
+                                                                    <p className="text-xs font-semibold uppercase text-muted-foreground">{q.label}</p>
+                                                                    <p className="text-sm">
+                                                                        {typeof selectedRequest.answers[q.id] === 'boolean'
+                                                                            ? (selectedRequest.answers[q.id] ? 'Oui' : 'Non')
+                                                                            : Array.isArray(selectedRequest.answers[q.id])
+                                                                                ? selectedRequest.answers[q.id].join(', ')
+                                                                                : selectedRequest.answers[q.id]}
+                                                                    </p>
+                                                                </div>
+                                                            ))}
+                                                            {Object.entries(selectedRequest.answers).map(([qid, ans]) => (
+                                                                !joinFormQuestions.find(jq => jq.id.toString() === qid.toString()) && (
+                                                                    <div key={qid} className="space-y-1">
+                                                                        <p className="text-xs font-semibold uppercase text-muted-foreground">Ancienne question ({qid})</p>
+                                                                        <p className="text-sm italic opacity-70">
+                                                                            {typeof ans === 'boolean' ? (ans ? 'Oui' : 'Non') : ans}
+                                                                        </p>
+                                                                    </div>
+                                                                )
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ) : showJoinResponses ? (
+                                    <div className="space-y-6">
+                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                                            <Button variant="outline" onClick={() => setShowJoinResponses(false)}>
+                                                <ArrowLeft className="w-4 h-4 mr-2" /> Retour
+                                            </Button>
+                                            <div className="flex-1">
+                                                <h2 className="text-2xl font-bold">Demandes d&apos;adhésion</h2>
+                                                <p className="text-muted-foreground">
+                                                    {joinRequests.length} demande{joinRequests.length > 1 ? 's' : ''} reçue{joinRequests.length > 1 ? 's' : ''}
+                                                </p>
+                                            </div>
+                                            <Button
+                                                variant="outline"
+                                                onClick={handleGenerateAllJoinResponsesPDF}
+                                                disabled={joinRequests.length === 0}
+                                            >
+                                                <FileText className="w-4 h-4 mr-2" />
+                                                Exporter toutes les réponses
+                                            </Button>
+                                        </div>
+
+                                        <Card>
+                                            <CardContent className="p-0 overflow-x-auto">
+                                                {joinRequests.length === 0 ? (
+                                                    <div className="p-12 text-center text-muted-foreground">
+                                                        Aucune demande en attente.
+                                                    </div>
+                                                ) : (
+                                                    <table className="w-full text-sm text-left">
+                                                        <thead className="bg-muted text-muted-foreground font-medium border-b">
+                                                            <tr>
+                                                                <th className="p-4 w-[170px]">Date</th>
+                                                                <th className="p-4 min-w-[150px]">Nom complet</th>
+                                                                <th className="p-4 min-w-[180px]">Email</th>
+                                                                <th className="p-4 min-w-[140px]">Téléphone</th>
+                                                                <th className="p-4 min-w-[220px]">Motivation</th>
+                                                                {joinFormQuestions.map(q => (
+                                                                    <th key={q.id} className="p-4 min-w-[150px]">{q.label}</th>
+                                                                ))}
+                                                                <th className="p-4 w-[110px] text-right">Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody className="divide-y">
+                                                            {joinRequests.map((req) => (
+                                                                <tr
+                                                                    key={req.id}
+                                                                    className="hover:bg-muted/50 cursor-pointer"
+                                                                    onClick={() => setSelectedRequest(req)}
+                                                                >
+                                                                    <td className="p-4 text-muted-foreground whitespace-nowrap">
+                                                                        {new Date(req.submittedAt).toLocaleDateString('fr-FR')} {new Date(req.submittedAt).toLocaleTimeString('fr-FR')}
+                                                                    </td>
+                                                                    <td className="p-4 font-medium">{req.name}</td>
+                                                                    <td className="p-4">{req.email}</td>
+                                                                    <td className="p-4">{req.phone}</td>
+                                                                    <td className="p-4 text-muted-foreground max-w-[320px] truncate" title={req.reason}>{req.reason || '-'}</td>
+                                                                    {joinFormQuestions.map(q => {
+                                                                        const ans = req.answers?.[q.id];
+                                                                        return (
+                                                                            <td key={q.id} className="p-4">
+                                                                                {typeof ans === 'boolean'
+                                                                                    ? (ans ? 'Oui' : 'Non')
+                                                                                    : Array.isArray(ans)
+                                                                                        ? ans.join(', ')
+                                                                                        : (ans || '-')}
+                                                                            </td>
+                                                                        );
+                                                                    })}
+                                                                    <td className="p-4 text-right">
+                                                                        <Button
+                                                                            variant="ghost"
+                                                                            size="sm"
+                                                                            onClick={(e) => { e.stopPropagation(); setSelectedRequest(req); }}
+                                                                        >
+                                                                            <Eye className="w-4 h-4 mr-2" />
+                                                                            Voir
+                                                                        </Button>
+                                                                    </td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ) : (
                                 <Card>
                                     <CardHeader>
-                                        <CardTitle>Demandes d&apos;adhésion</CardTitle>
-                                        <CardDescription>Gérez les demandes pour rejoindre le club.</CardDescription>
+                                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                            <div className="space-y-1">
+                                                <CardTitle>Demandes d&apos;adhésion</CardTitle>
+                                                <CardDescription>Gérez les demandes pour rejoindre le club.</CardDescription>
+                                            </div>
+                                            <Button onClick={() => setShowJoinResponses(true)}>
+                                                <Users className="w-4 h-4 mr-2" />
+                                                Réponses
+                                                {joinRequests.length > 0 && (
+                                                    <Badge variant="secondary" className="ml-2">{joinRequests.length}</Badge>
+                                                )}
+                                            </Button>
+                                        </div>
                                     </CardHeader>
                                     <CardContent className="space-y-6">
                                         {/* Invitation Link */}
@@ -2531,90 +2755,9 @@ export default function ClubAdminPage() {
                                             </div>
                                         </div>
 
-                                        <div className="space-y-4">
-                                            {joinRequests.length === 0 ? (
-                                                <div className="text-center py-12 border-2 border-dashed rounded-lg bg-muted/50">
-                                                    <p className="text-muted-foreground">Aucune demande en attente.</p>
-                                                </div>
-                                            ) : (
-                                                joinRequests.map((req) => (
-                                                    <Card key={req.id} className="overflow-hidden">
-                                                        <div className="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                                                            <div>
-                                                                <h3 className="font-bold">{req.name}</h3>
-                                                                <div className="text-sm text-muted-foreground space-y-1">
-                                                                    <p>{req.email}</p>
-                                                                    <p>{req.phone}</p>
-                                                                    <p className="mt-2 text-foreground bg-muted p-2 rounded text-xs italic">
-                                                                        &quot;{req.reason}&quot;
-                                                                    </p>
-
-                                                                    {req.answers && Object.keys(req.answers).length > 0 && (
-                                                                        <div className="mt-3 space-y-2 pt-2 border-t border-border">
-                                                                            <p className="text-xs font-semibold text-primary">Réponses complémentaires :</p>
-                                                                            {joinFormQuestions.map(q => req.answers[q.id] && (
-                                                                                <div key={q.id} className="text-xs">
-                                                                                    <span className="font-medium text-muted-foreground">{q.label} : </span>
-                                                                                    <span className="text-foreground">
-                                                                                        {typeof req.answers[q.id] === 'boolean'
-                                                                                            ? (req.answers[q.id] ? 'Oui' : 'Non')
-                                                                                            : req.answers[q.id]}
-                                                                                    </span>
-                                                                                </div>
-                                                                            ))}
-                                                                            {/* If question was deleted but answer exists */}
-                                                                            {Object.entries(req.answers).map(([qid, ans]) => (
-                                                                                !joinFormQuestions.find(jq => jq.id.toString() === qid.toString()) && (
-                                                                                    <div key={qid} className="text-xs italic opacity-70">
-                                                                                        <span className="font-medium">Ancienne question ({qid}) : </span>
-                                                                                        <span>{ans}</span>
-                                                                                    </div>
-                                                                                )
-                                                                            ))}
-                                                                        </div>
-                                                                    )}
-
-                                                                    <p className="text-xs">
-                                                                        Reçu le {new Date(req.submittedAt).toLocaleDateString('fr-FR')} à {new Date(req.submittedAt).toLocaleTimeString('fr-FR')}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="flex items-center gap-2 w-full sm:w-auto mt-4 sm:mt-0 flex-wrap justify-end">
-                                                                <Button
-                                                                    variant="outline"
-                                                                    size="sm"
-                                                                    onClick={() => handleGeneratePDF(req, 'join', club)}
-                                                                    className="w-full sm:w-auto"
-                                                                    title="Exporter en PDF"
-                                                                >
-                                                                    <FileText className="w-4 h-4 sm:mr-2" />
-                                                                    <span className="sm:inline">PDF</span>
-                                                                </Button>
-                                                                <Button
-                                                                    className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700"
-                                                                    size="sm"
-                                                                    onClick={() => handleApproveRequest(req)}
-                                                                >
-                                                                    <CheckCircle2 className="w-4 h-4 mr-2" />
-                                                                    Approuver
-                                                                </Button>
-                                                                <Button
-                                                                    variant="destructive"
-                                                                    className="flex-1 sm:flex-none"
-                                                                    size="sm"
-                                                                    onClick={() => handleRejectRequest(req.id)}
-                                                                >
-                                                                    <Trash2 className="w-4 h-4 mr-2" />
-                                                                    Rejeter
-                                                                </Button>
-                                                            </div>
-                                                        </div>
-                                                    </Card>
-                                                ))
-                                            )}
-                                        </div>
                                     </CardContent>
                                 </Card>
+                                )}
                             </TabsContent>
 
                             {/* Forms Tab */}
