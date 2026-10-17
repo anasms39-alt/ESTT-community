@@ -1,3 +1,10 @@
+# [1.39.0](https://github.com/torchcoders/ESTT-community/compare/v1.38.6...v1.39.0) (2026-10-17)
+
+
+### Features
+
+* **dialogs:** Add Lottie animations to unified dialogs - Merge PR [#55](https://github.com/torchcoders/ESTT-community/issues/55)  ([27183b6](https://github.com/torchcoders/ESTT-community/commit/27183b620f80850d5e4f6556e3e9b0f4737fcee8))
+
 ## [1.38.6](https://github.com/torchcoders/ESTT-community/compare/v1.38.5...v1.38.6) (2026-10-17)
 
 
