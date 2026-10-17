@@ -1,4 +1,5 @@
 import { db, ref, update } from '@/lib/firebase';
+import { getClubBySlug } from '@/lib/clubUtils';
 import { useDialog } from '@/context/DialogContext';
 import {
     Card,
@@ -23,7 +24,13 @@ export default function AdminClubChanges({ requests }) {
         if (!confirmed) return;
 
         try {
-            const clubRef = ref(db, `clubs/${request.clubId}`);
+            const club = await getClubBySlug(request.clubId);
+            if (!club) {
+                showError("Club introuvable pour cette demande.");
+                return;
+            }
+
+            const clubRef = ref(db, `clubs/${club.id}`);
 
             if (request.changeType === 'name') {
                 await update(clubRef, { name: request.newData.name });
