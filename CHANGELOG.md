@@ -1,3 +1,10 @@
+# [1.40.0](https://github.com/torchcoders/ESTT-community/compare/v1.39.0...v1.40.0) (2026-10-21)
+
+
+### Features
+
+* **club:** full-view join requests with dedicated responses tab ([ea3e73b](https://github.com/torchcoders/ESTT-community/commit/ea3e73b9e174a7fabc9e61596fe518d4efccec3a))
+
 # [1.39.0](https://github.com/torchcoders/ESTT-community/compare/v1.38.6...v1.39.0) (2026-10-17)
 
 
