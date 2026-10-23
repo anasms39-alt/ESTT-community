@@ -161,48 +161,36 @@ export default function ClubAdminPage() {
         }
     };
 
-    const handleGenerateAllJoinResponsesPDF = async () => {
+    const handleExportAllJoinResponsesExcel = async () => {
         if (joinRequests.length === 0) return;
 
+        const form = {
+            title: "Demandes d'adhésion",
+            dateLocale: 'fr-FR',
+            fields: [
+                { id: 'name', label: 'Nom complet' },
+                { id: 'email', label: 'Email' },
+                { id: 'phone', label: 'Téléphone' },
+                { id: 'reason', label: 'Motivation' },
+                ...joinFormQuestions.map(q => ({ id: q.id, label: q.label }))
+            ]
+        };
+        const data = joinRequests.map(req => ({
+            submittedAt: req.submittedAt,
+            data: {
+                name: req.name,
+                email: req.email,
+                phone: req.phone,
+                reason: req.reason,
+                ...(req.answers || {})
+            }
+        }));
+
         try {
-            const form = {
-                title: "Demandes d'adhésion",
-                fields: [
-                    { id: 'name', label: 'Nom complet' },
-                    { id: 'email', label: 'Email' },
-                    { id: 'phone', label: 'Téléphone' },
-                    { id: 'reason', label: 'Motivation' },
-                    ...joinFormQuestions.map(q => ({ id: q.id, label: q.label }))
-                ]
-            };
-
-            const data = joinRequests.map(req => ({
-                id: req.id,
-                submittedAt: req.submittedAt,
-                data: {
-                    name: req.name,
-                    email: req.email,
-                    phone: req.phone,
-                    reason: req.reason,
-                    ...(req.answers || {})
-                }
-            }));
-
-            await generateAllFormResponsesPDF(data, form, club);
-            setMessage('Toutes les demandes ont été exportées avec succès');
+            await downloadFormResponsesExcel(form, data);
+            setMessage('Toutes les demandes ont été exportées vers Excel avec succès.');
         } catch (error) {
-            console.error('Error exporting all join responses:', error);
-            setMessage("Erreur lors de l'exportation des demandes");
-        }
-    };
-
-    const handleExportFormResponses = async () => {
-        if (!selectedForm || loadingSubmissions) return;
-        try {
-            await downloadFormResponsesExcel(selectedForm, submissions);
-            setMessage('Réponses exportées vers Excel avec succès.');
-        } catch (error) {
-            console.error('Excel responses export failed:', error);
+            console.error('Excel join responses export failed:', error);
             setMessage("Erreur lors de l'exportation du fichier Excel");
         }
     };
@@ -2560,11 +2548,12 @@ export default function ClubAdminPage() {
                                             </div>
                                             <Button
                                                 variant="outline"
-                                                onClick={handleGenerateAllJoinResponsesPDF}
+                                                onClick={handleExportAllJoinResponsesExcel}
                                                 disabled={joinRequests.length === 0}
+                                                className="gap-2"
                                             >
-                                                <FileText className="w-4 h-4 mr-2" />
-                                                Exporter toutes les réponses
+                                                <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
+                                                Exporter en Excel
                                             </Button>
                                         </div>
 
@@ -2794,18 +2783,6 @@ export default function ClubAdminPage() {
                                             </Button>
                                         </div>
 
-                                        <div className="flex justify-end -mt-3">
-                                            <Button
-                                                variant="outline"
-                                                onClick={handleExportFormResponses}
-                                                disabled={loadingSubmissions || submissions.length === 0}
-                                                className="gap-2"
-                                            >
-                                                <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
-                                                Exporter en Excel
-                                            </Button>
-                                        </div>
-
                                         <Card>
                                             <CardContent className="p-0 overflow-x-auto">
                                                 {loadingSubmissions ? (
@@ -2824,6 +2801,7 @@ export default function ClubAdminPage() {
                                                                 {selectedForm.fields.map(field => (
                                                                     <th key={field.id} className="p-4 min-w-[150px]">{field.label}</th>
                                                                 ))}
+                                                                <th className="p-4 w-[100px] text-right">Actions</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody className="divide-y">
@@ -2839,6 +2817,16 @@ export default function ClubAdminPage() {
                                                                                 : (sub.data?.[field.id] || '-')}
                                                                         </td>
                                                                     ))}
+                                                                    <td className="p-4 text-right">
+                                                                        <Button
+                                                                            variant="ghost"
+                                                                            size="sm"
+                                                                            onClick={() => handleGeneratePDF(sub, 'form', club)}
+                                                                            title="Exporter en PDF"
+                                                                        >
+                                                                            <FileText className="w-4 h-4 text-blue-600" />
+                                                                        </Button>
+                                                                    </td>
                                                                 </tr>
                                                             ))}
                                                         </tbody>
